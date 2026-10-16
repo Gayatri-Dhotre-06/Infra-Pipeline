@@ -11,9 +11,9 @@ pipeline {
         stage('test') {
             steps {
                 withCredentials([
-                    string(credentialsId: 'aws-access-key-id',
+                    string(credentialsId: 'aws_access_key_id',
                            variable: 'AWS_ACCESS_KEY_ID'),
-                    string(credentialsId: 'aws-secret-access-key',
+                    string(credentialsId: 'aws_secret_access_key_id',
                            variable: 'AWS_SECRET_ACCESS_KEY')
                 ]) {
                     sh '''
