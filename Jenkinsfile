@@ -18,6 +18,7 @@ pipeline {
 ])}
                 {
                 sh '''
+                export AWS_DEFAULT_REGION=ap-south-1
                   terraform --version
                     terraform init
                     terraform validate 
