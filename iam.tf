@@ -1,7 +1,7 @@
 
 # roles for the cluster
 resource "aws_iam_role" "eks_role" {
-  name = "eks-cluster-role"
+  name = "project1-eks-cluster-role"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -29,7 +29,7 @@ resource "aws_iam_role_policy_attachment" "cluster_policy" {
 
 # roles for the worker nodes
 resource "aws_iam_role" "node_role" {
-  name = "eks-worker-node-role"
+  name = "project1-eks-worker-node-role"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
