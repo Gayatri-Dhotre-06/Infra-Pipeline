@@ -1,6 +1,6 @@
 
 resource "aws_eks_cluster" "eks" {
-  name     = "my-eks-cluster"
+  name     = "project1-my-eks-cluster"
   role_arn = aws_iam_role.eks_role.arn
   version  = "1.34"
 
@@ -30,7 +30,7 @@ resource "aws_eks_cluster" "eks" {
 
 resource "aws_eks_node_group" "workers" {
   cluster_name    = aws_eks_cluster.eks.name
-  node_group_name = "my-worker-nodes"
+  node_group_name = "project1-my-worker-nodes"
   node_role_arn   = aws_iam_role.node_role.arn
 
   subnet_ids = [
