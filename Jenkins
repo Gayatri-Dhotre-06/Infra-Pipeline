@@ -5,24 +5,39 @@ pipeline {
         stage('code pull') {
             steps {
                 sh '''
-                  git clone 
-                echo 'Hello World'
+                  git clone https://github.com/Gayatri-Dhotre-06/Infra-Pipeline.git
+                '''
+                echo 'code clone successfull.'
             }
         }
 
         stage('test') {
             steps {
                 sh '''
-                  
-                echo 'Hello World'
+                  terraform --version
+                    terraform init
+                    terraform validate 
+                    terraform plan
+                '''
+                echo 'test successfull.'
             }
         }
 
         stage('deploy') {
             steps {
                 sh '''
-                  
-                echo 'Hello World'
+                   terraform apply --auto-approve
+                '''
+                echo 'deploy successfull.'
+            }
+        }
+
+        stage('Monitor') {
+            steps {
+                sh '''
+                   terraform output
+                '''
+                echo 'run successfull.'
             }
         }
     }
