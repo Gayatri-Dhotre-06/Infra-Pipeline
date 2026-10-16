@@ -31,6 +31,12 @@ pipeline {
 
         stage('deploy') {
             steps {
+                withCredentials([
+                    string(credentialsId: 'aws_access_key_id',
+                           variable: 'AWS_ACCESS_KEY_ID'),
+                    string(credentialsId: 'aws_secret_access_key_id',
+                           variable: 'AWS_SECRET_ACCESS_KEY')
+                ]) {
                     sh '''
                         export AWS_DEFAULT_REGION=ap-south-1
                         terraform apply --auto-approve
@@ -38,6 +44,7 @@ pipeline {
                 }
                 echo 'Deploy successful.'
             }
+        }
 
         stage('Monitor') {
             steps {
