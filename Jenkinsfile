@@ -2,12 +2,8 @@ pipeline {
     agent any
 
     stages {
-        stage('code pull') {
+        stage('code clone') {
             steps {
-                sh '''
-                  git branch: 'main',
-                    url: 'https://github.com/Gayatri-Dhotre-06/Infra-Pipeline.git'
-                '''
                 echo 'code clone successfull.'
             }
         }
